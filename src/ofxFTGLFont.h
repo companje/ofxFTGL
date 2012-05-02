@@ -14,6 +14,10 @@ public:
     void 		setLineHeight(float height);
     ofRectangle getStringBoundingBox(string s, float x, float y);
 
+    //encoding
+    void        setEncodingUnicode();
+    void        setEncodingAppleRoman();
+    
     //functions below take in account multi byte characters
     void 		drawString(string s, float x, float y);
     string      getChar(string s, int pos);

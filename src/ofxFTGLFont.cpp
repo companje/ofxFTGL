@@ -2,9 +2,6 @@
 
 bool ofxFTGLFont::loadFont(string filename, float fontsize, bool _bAntiAliased, bool _bFullCharacterSet, bool makeContours){
     font = new FTTextureFont(ofToDataPath(filename).c_str());
-    font->Outset(0.0f, fontsize);
-    
-    font->CharMap(ft_encoding_unicode);
     
     if(font->Error()){
         ofLog(OF_LOG_ERROR, "error loading font");
@@ -15,7 +12,24 @@ bool ofxFTGLFont::loadFont(string filename, float fontsize, bool _bAntiAliased, 
         ofLog(OF_LOG_ERROR, "Failed to set size");
         return false;
     }
+    
+    font->Outset(0.0f, fontsize);
+    
+    setEncodingUnicode();
+    
     return true;
+}
+
+void ofxFTGLFont::setEncodingUnicode() {
+    if (!font->CharMap(ft_encoding_unicode)) {
+        ofLog(OF_LOG_ERROR, "Error in setEncodingUnicode");
+    }
+}
+
+void ofxFTGLFont::setEncodingAppleRoman() {
+    if (!font->CharMap(ft_encoding_apple_roman)) {
+        ofLog(OF_LOG_ERROR, "Error in setEncodingAppleRoman");
+    }
 }
 
 void ofxFTGLFont::setSize(int size){
