@@ -2,3 +2,8 @@ Updated version of obviousjim's update of ofxFTGL
 This version of ofxFTGL supports multi byte characters 
 Rick Companje, 19-12-2011
  
+INSTALL
+=============
+OSX
+ - Drag the ofxFTGL folder to your project in XCode
+ - Add the ofxFTGL/libs/FTGL/src folder to your project's 'Header Search Paths'. In my case: "$(SRCROOT)/addons/ofxFTGL/libs/FTGL/src"
